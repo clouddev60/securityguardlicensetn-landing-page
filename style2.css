@@ -1,6 +1,49 @@
-/* Modern CSS - No Variables Version - Compatible with All Site Builders */
+/*
+ * MODERN & AESTHETIC REDESIGN
+ *
+ * This CSS file completely reimagines the original style.css to create a more
+ * modern, clean, and professional aesthetic. It uses CSS variables for an 
+ * easily maintainable and consistent color palette, shadow system, and border-radius.
+ */
 
-/* Reset and Base Styles */
+/* 1. ROOT VARIABLES (The new design system) */
+:root {
+    --primary-color: #2563EB;
+    /* A vibrant, modern blue */
+    --primary-dark: #1D4ED8;
+    /* A darker shade for hovers */
+    --primary-light: #EFF6FF;
+    /* A very light shade for backgrounds */
+    --text-dark: #111827;
+    /* For headings */
+    --text-body: #374151;
+    /* For body copy */
+    --text-light: #6B7281;
+    /* For subtext, placeholders */
+    --bg-light: #F9FAFB;
+    /* For light section backgrounds */
+    --bg-white: #ffffff;
+    --border-color: #E5E7EB;
+    /* For subtle borders */
+    --success-color: #10B981;
+    /* For pricing */
+
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    --radius-md: 0.5rem;
+    /* 8px */
+    --radius-lg: 0.75rem;
+    /* 12px */
+    --radius-xl: 1rem;
+    /* 16px */
+}
+
+/* 2. BASE & TYPOGRAPHY */
 * {
     margin: 0;
     padding: 0;
@@ -8,11 +51,15 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.6;
-    color: #2d3748;
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    /* Increased for readability */
+    color: var(--text-body);
+    background-color: var(--bg-white);
     overflow-x: hidden;
     font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Hide elements */
@@ -28,54 +75,89 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    color: #2d3748;
+    line-height: 1.3;
+    /* Tighter for headings */
+    margin-bottom: 1.25rem;
+    color: var(--text-dark);
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.25rem; }
-h3 { font-size: 1.875rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1.125rem; }
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
 
 p {
-    margin-bottom: 1rem;
-    color: #4a5568;
+    margin-bottom: 1.25rem;
+    color: var(--text-body);
     font-size: 1.125rem;
 }
 
-/* Buttons */
+b,
+strong {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+/* 3. BUTTONS */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    /* Slightly refined padding */
+    border-radius: var(--radius-md);
     font-weight: 600;
     font-size: 1rem;
     text-decoration: none;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease-in-out;
     min-width: 160px;
     text-align: center;
 }
 
 .btn-1 {
-    background: linear-gradient(135deg, #000050, #1a2a6c);
-    color: #ffffff;
-    border-color: #000050;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
 }
 
 .btn-1:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    background: linear-gradient(135deg, #1a2a6c, #3182ce);
+    box-shadow: var(--shadow-lg);
 }
 
 .btn-sm {
@@ -84,11 +166,18 @@ p {
     min-width: 120px;
 }
 
-/* Hero Section */
+button:focus,
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+    /* Modern focus ring */
+}
+
+/* 4. HERO SECTION */
 .hero-2-section {
-    background: linear-gradient(135deg, #000050, #1a2a6c);
-    color: #ffffff;
-    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--bg-white);
+    padding: 7rem 0;
     position: relative;
     overflow: hidden;
 }
@@ -106,7 +195,7 @@ p {
 
 .hero-2-section-container {
     display: grid;
-    grid-template-columns: 1fr 1.3fr;
+    grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
     position: relative;
@@ -114,35 +203,35 @@ p {
 }
 
 .hero-2-section-text h2 {
-    font-size: 3rem;
-    line-height: 1.1;
+    font-size: 3.25rem;
+    line-height: 1.2;
     margin-bottom: 1.5rem;
-    color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: var(--bg-white);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .hero-2-section-text p {
     font-size: 1.25rem;
-    color: rgba(255,255,255,0.9);
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 2rem;
 }
 
 .hero-2-img {
-    height: auto;
     width: 100%;
-    object-fit: cover;
-    border-radius: 1rem;
+    height: auto;
+    border-radius: var(--radius-xl);
+    /* Softer radius */
+    box-shadow: var(--shadow-xl);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: scale(1.05);
-    mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
 }
 
 .hero-2-img:hover {
-    transform: translateY(-8px) scale(1.08);
+    transform: translateY(-8px) scale(1.03);
+    /* More pop */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
-/* Basic Landing Section */
+/* 5. CONTENT SECTIONS (Features, Info) */
 .basic-landing-2-container {
     padding: 5rem 0;
     display: flex;
@@ -152,7 +241,7 @@ p {
     margin: 0 auto;
 }
 
-.basic-landing-2-container > div:first-child {
+.basic-landing-2-container>div:first-child {
     width: 100%;
     text-align: left;
 }
@@ -174,15 +263,16 @@ p {
 /* Feature Sections */
 .ngjs1-feature-4,
 .ngjs1-feature-1 {
-    padding: 5rem 0 !important;
+    padding: 6rem 0 !important;
+    /* More vertical space */
 }
 
 .ngjs1-feature-4:nth-child(even) {
-    background-color: #f7fafc;
+    background-color: var(--bg-light);
 }
 
 .section-gray {
-    background-color: #f7fafc;
+    background-color: var(--bg-light);
 }
 
 .ngjs1-feature-4-container {
@@ -196,10 +286,11 @@ p {
 .ngjs1-feature-4-img {
     width: 100%;
     height: auto;
-    border-radius: 1rem;
+    border-radius: var(--radius-lg);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+    /* Removing the dated mask effect */
+    mask-image: none;
+    -webkit-mask-image: none;
 }
 
 .ngjs1-feature-4-img:hover {
@@ -207,13 +298,12 @@ p {
 }
 
 .ngjs1-feature-4-info h2 {
-    color: #000050;
-    margin-bottom: 1.5rem;
+    color: var(--primary-color);
 }
 
 .ngjs1-feature-4-info h3 {
-    color: #000050;
-    font-size: 1.25rem;
+    color: var(--text-dark);
+    font-size: 1.375rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
@@ -225,15 +315,15 @@ p {
 .course-topics p {
     margin-bottom: 1rem;
     padding-left: 1rem;
-    border-left: 3px solid #000050;
+    border-left: 3px solid var(--primary-color);
 }
 
 .case-study {
-    background: #edf2f7;
+    background: var(--primary-light);
     padding: 1.5rem;
-    border-radius: 0.5rem;
+    border-radius: var(--radius-lg);
     margin: 1.5rem 0;
-    border-left: 4px solid #000050;
+    border-left: 4px solid var(--primary-color);
 }
 
 .case-study p {
@@ -244,36 +334,52 @@ p {
     margin-bottom: 0;
 }
 
-/* Table Styles */
+/* 6. TABLE */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 2rem 0;
-    background: #ffffff;
-    border-radius: 0.5rem;
+    margin: 2.5rem 0;
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    /* Softer radius */
     overflow: hidden;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    /* Subtle outer border */
 }
 
-th, td {
+th,
+td {
     padding: 1.25rem 1.5rem;
     text-align: left;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 th {
-    background: #000050;
+    background: var(--bg-light);
+    /* Light, clean header */
     font-weight: 600;
-    color: #ffffff;
+    color: var(--text-dark);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+tr:last-child td {
+    border-bottom: none;
+    /* Remove last border */
 }
 
 tr:hover {
-    background: #f7fafc;
+    background: var(--primary-light);
+    /* Use primary light for hover */
 }
 
-/* Steps Section - Highly Specific Selectors for Builder Compatibility */
+/* 7. STEPS SECTIONS (Overriding builder styles) */
+
+/* Main 3-Step Section */
 #tn-steps-section {
-    padding: 5rem 0 !important;
+    padding: 6rem 0 !important;
     box-sizing: border-box !important;
     margin: 0 !important;
 }
@@ -287,19 +393,18 @@ tr:hover {
 
 #tn-steps-section h2 {
     text-align: center !important;
-    color: #000050 !important;
+    color: var(--primary-color) !important;
     margin: 0 0 1.5rem 0 !important;
     padding: 0 !important;
     font-size: 2.5rem !important;
     line-height: 1.2 !important;
-    font-weight: 700 !important;
 }
 
 #tn-steps-section .tn-steps-description {
     text-align: center !important;
     margin: 0 auto 3rem !important;
     max-width: 1400px !important;
-    color: #4a5568 !important;
+    color: var(--text-body) !important;
     font-size: 1.125rem !important;
     line-height: 1.6 !important;
     padding: 0 !important;
@@ -315,19 +420,28 @@ tr:hover {
 }
 
 #tn-steps-section .ngjs1-feature-1-item {
-    background: #ffffff !important;
-    padding: 2rem 1.75rem !important;
-    border-radius: 1rem !important;
+    background: var(--bg-white) !important;
+    padding: 2.5rem 2rem !important;
+    /* More padding */
+    border-radius: var(--radius-lg) !important;
     text-align: center !important;
-    border: 1px solid #e2e8f0 !important;
+    /* Removing the heavy top border for a cleaner card */
+    border: 1px solid var(--border-color) !important;
     box-sizing: border-box !important;
     margin: 0 !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    box-shadow: var(--shadow-lg) !important;
+    transition: all 0.3s ease !important;
+}
+
+#tn-steps-section .ngjs1-feature-1-item:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: var(--shadow-xl) !important;
+    border-color: var(--primary-color) !important;
 }
 
 #tn-steps-section .step-label {
-    color: #38a169 !important;
-    font-weight: 600 !important;
+    color: var(--primary-color) !important;
+    font-weight: 700 !important;
     font-size: 0.875rem !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
@@ -336,9 +450,9 @@ tr:hover {
 }
 
 #tn-steps-section .ngjs1-feature-1-item h3 {
-    color: #000050 !important;
+    color: var(--text-dark) !important;
     margin: 0 0 0.75rem 0 !important;
-    font-size: 1.25rem !important;
+    font-size: 1.375rem !important;
     padding: 0 !important;
     font-weight: 700 !important;
     line-height: 1.3 !important;
@@ -347,7 +461,7 @@ tr:hover {
 #tn-steps-section .ngjs1-feature-1-item p:not(.step-label) {
     margin: 0 !important;
     padding: 0 !important;
-    color: #4a5568 !important;
+    color: var(--text-body) !important;
     font-size: 1rem !important;
     line-height: 1.6 !important;
 }
@@ -362,7 +476,7 @@ tr:hover {
 #tn-steps-section .tn-steps-footer h3 {
     margin: 0 0 1rem 0 !important;
     padding: 0 !important;
-    color: #000050 !important;
+    color: var(--text-dark) !important;
     font-size: 1.5rem !important;
     font-weight: 700 !important;
 }
@@ -370,7 +484,7 @@ tr:hover {
 #tn-steps-section .tn-steps-footer p {
     margin: 0 !important;
     padding: 0 !important;
-    color: #4a5568 !important;
+    color: var(--text-body) !important;
     font-size: 1rem !important;
     line-height: 1.6 !important;
 }
@@ -381,7 +495,7 @@ tr:hover {
     padding: 0 !important;
 }
 
-/* Steps Section */
+/* Quick Reference Steps Section */
 .ngjs1-feature-1-container {
     max-width: 1400px !important;
     margin: 0 auto !important;
@@ -390,7 +504,7 @@ tr:hover {
 
 .ngjs1-feature-1-container h2 {
     text-align: center !important;
-    color: #000050 !important;
+    color: var(--primary-color) !important;
     margin-bottom: 1.5rem !important;
 }
 
@@ -402,31 +516,31 @@ tr:hover {
 }
 
 .ngjs1-feature-1-item {
-    background: #ffffff !important;
+    background: var(--bg-white) !important;
     padding: 2rem 1.75rem !important;
-    border-radius: 1rem !important;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-md) !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     text-align: center !important;
-    border-top: 4px solid #000050 !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-bottom: none !important;
+    /* Replacing heavy border with a subtle one */
+    border: 1px solid var(--border-color) !important;
+    border-top: 4px solid var(--primary-color) !important;
+    /* Keep top border but use new color */
 }
 
 .ngjs1-feature-1-item:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+    transform: translateY(-6px) !important;
+    box-shadow: var(--shadow-lg) !important;
 }
 
 .ngjs1-feature-1-item h3 {
-    color: #000050 !important;
+    color: var(--primary-color) !important;
     margin-bottom: 0.75rem !important;
     font-size: 1.25rem !important;
 }
 
 .ngjs1-feature-1-item p:first-of-type {
-    color: #000050 !important;
+    color: var(--primary-color) !important;
     font-weight: 600 !important;
     font-size: 0.875rem !important;
     text-transform: uppercase !important;
@@ -438,12 +552,15 @@ tr:hover {
     margin-bottom: 0 !important;
 }
 
-/* Testimonials Section */
+/* 8. TESTIMONIALS */
 .testimonials-section .ngjs1-feature-1-item {
-    border-top: none !important;
-    border-left: 4px solid #000050 !important;
+    border-left: 4px solid var(--primary-color) !important;
     text-align: left !important;
-    padding: 2rem !important;
+    padding: 2.5rem !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    box-shadow: var(--shadow-lg) !important;
 }
 
 .testimonial-card {
@@ -453,25 +570,26 @@ tr:hover {
 }
 
 .testimonial-text {
-    font-size: 1.125rem !important;
-    line-height: 1.8 !important;
-    color: #2d3748 !important;
+    font-size: 1.25rem !important;
+    /* Larger, more impactful */
+    line-height: 1.7 !important;
+    color: var(--text-dark) !important;
     font-style: italic !important;
     margin: 0 0 1.5rem 0 !important;
     flex: 1 !important;
 }
 
 .testimonial-author {
-    font-size: 0.95rem !important;
-    font-weight: 600 !important;
-    color: #000050 !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: var(--primary-color) !important;
     margin: 0 !important;
-    padding-top: 1rem !important;
-    border-top: 1px solid #e2e8f0 !important;
+    padding-top: 1.5rem !important;
+    border-top: 1px solid var(--border-color) !important;
     text-align: right !important;
 }
 
-/* Feature Icons */
+/* 9. ICONS (in steps) */
 .ngjs1-feature-3-item {
     display: flex;
     justify-content: center;
@@ -482,18 +600,19 @@ tr:hover {
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background: #edf2f7;
+    background: var(--primary-light);
+    /* Lighter background */
     padding: 0.75rem;
 }
 
-/* Course Sections */
+/* 10. COURSE & BUNDLE CARDS */
 .ngjs1-course-section {
-    background: #f7fafc;
-    padding: 5rem 0;
+    background: var(--bg-light);
+    padding: 6rem 0;
 }
 
 .ngjs1-course-section.pricing-section {
-    background: #f7fafc;
+    background: var(--bg-light);
 }
 
 .ngjs1-course-container {
@@ -505,18 +624,17 @@ tr:hover {
 
 .pricing-heading {
     text-align: center !important;
-    color: #000050 !important;
+    color: var(--primary-color) !important;
     margin: 0 0 1rem 0 !important;
     padding: 0 !important;
     font-size: 2.5rem !important;
-    font-weight: 700 !important;
     line-height: 1.2 !important;
 }
 
 .pricing-subheading {
     text-align: center !important;
-    color: #4a5568 !important;
-    margin: 0 0 3rem 0 !important;
+    color: var(--text-body) !important;
+    margin: 0 0 3.5rem 0 !important;
     padding: 0 !important;
     font-size: 1.125rem !important;
     line-height: 1.6 !important;
@@ -528,7 +646,8 @@ tr:hover {
 .ngjs1-course-content {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 1.5rem;
+    gap: 2rem;
+    /* More gap */
     align-items: stretch;
     flex-wrap: nowrap !important;
     max-width: 1400px;
@@ -541,35 +660,59 @@ tr:hover {
     }
 }
 
-.ngjs1-course-item-block {
+.ngjs1-course-item-block,
+.ngjs1-bundle-item-block {
     display: flex;
     height: 100%;
+    text-decoration: none;
+    color: inherit;
 }
 
-.ngjs1-course-item {
-    background: #ffffff;
-    border-radius: 1rem;
+.ngjs1-course-item,
+.ngjs1-bundle-item {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-md);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
     width: 100%;
+    border: 1px solid var(--border-color);
 }
 
-.ngjs1-course-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+.ngjs1-course-item:hover,
+.ngjs1-bundle-item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
 }
 
-.ngjs1-course-item-img {
+.ngjs1-course-item-img-block,
+.ngjs1-bundle-item-img {
+    overflow: hidden;
+    /* For image zoom */
+}
+
+.ngjs1-course-item-img,
+.ngjs1-bundle-item-img img {
     width: 100%;
-    height: 160px;
+    height: 200px;
+    /* Taller images */
     object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
-.ngjs1-course-info {
-    padding: 1.25rem;
+.ngjs1-course-item:hover .ngjs1-course-item-img,
+.ngjs1-bundle-item:hover .ngjs1-bundle-item-img img {
+    transform: scale(1.05);
+    /* Zoom on hover */
+}
+
+.ngjs1-course-info,
+.ngjs1-bundle-item-info {
+    padding: 1.5rem;
+    /* More padding */
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -579,7 +722,7 @@ tr:hover {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 
 .ngjs1-course-author img {
@@ -589,113 +732,62 @@ tr:hover {
 }
 
 .ngjs1-course-author span {
-    font-size: 0.8125rem;
-    color: #718096;
+    font-size: 0.875rem;
+    color: var(--text-light);
+    font-weight: 500;
 }
 
 .ngjs1-course-text {
     flex: 1;
 }
 
-.ngjs1-course-text h3 {
-    font-size: 1.125rem;
+.ngjs1-course-text h3,
+.ngjs1-bundle-item-info h3 {
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
-    color: #000050;
+    color: var(--text-dark);
+    line-height: 1.4;
+    transition: color 0.2s ease;
 }
 
-.ngjs1-course-text p {
-    font-size: 0.875rem;
-    color: #4a5568;
-    line-height: 1.5;
+.ngjs1-course-item-block:hover .ngjs1-course-text h3,
+.ngjs1-bundle-item-block:hover .ngjs1-bundle-item-info h3 {
+    color: var(--primary-color);
+    /* Color link on hover */
+}
+
+.ngjs1-course-text p,
+.ngjs1-bundle-item-desc p {
+    font-size: 1rem;
+    /* Larger body text */
+    color: var(--text-body);
+    line-height: 1.6;
 }
 
 .ngjs1-course-price {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid #e2e8f0;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
 }
 
 .ngjs1-course-price del {
-    color: #718096;
-    font-size: 0.875rem;
+    color: var(--text-light);
+    font-size: 1rem;
 }
 
 .ngjs1-course-price strong {
-    color: #38a169;
-    font-size: 1.25rem;
+    color: var(--success-color);
+    font-size: 1.375rem;
     font-weight: 700;
 }
 
-/* Bundle Section */
-.ngjs1-bundle-section {
-    padding: 5rem 0;
-}
-
-.ngjs1-bundle-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-.ngjs1-bundle-content {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 2rem;
-    align-items: stretch;
-}
-
-.ngjs1-bundle-item-block {
-    display: flex;
-    height: 100%;
-}
-
-.ngjs1-bundle-item {
-    background: #ffffff;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid transparent;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.ngjs1-bundle-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    border-color: #000050;
-}
-
-.ngjs1-bundle-item-img img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-}
-
-.ngjs1-bundle-item-info {
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.ngjs1-bundle-item-info h3 {
-    color: #000050;
-    margin-bottom: 0.75rem;
-    font-size: 1.125rem;
-}
-
-.ngjs1-bundle-item-included {
-    margin-bottom: 0.75rem;
-}
-
+/* Bundle Specific */
 .ngjs1-bundle-item-included p {
     font-weight: 600;
-    color: #2d3748;
+    color: var(--text-dark);
     margin-bottom: 0.5rem;
     font-size: 0.875rem;
 }
@@ -704,17 +796,9 @@ tr:hover {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #000050;
+    color: var(--primary-color);
     font-size: 0.875rem;
-}
-
-.ngjs1-bundle-item-desc {
-    flex: 1;
-}
-
-.ngjs1-bundle-item-desc p {
-    font-size: 0.875rem;
-    color: #4a5568;
+    font-weight: 500;
 }
 
 .ngjs1-bundle-item-price-more {
@@ -732,21 +816,23 @@ tr:hover {
 }
 
 .ngjs1-bundle-item-price del {
-    color: #718096;
+    color: var(--text-light);
+    font-size: 1.125rem;
 }
 
 .ngjs1-bundle-item-price span {
-    color: #38a169;
+    color: var(--success-color);
     font-size: 1.5rem;
     font-weight: 700;
 }
 
-/* Form Section (Video & Podcast) */
+/* 11. VIDEO & PODCAST SECTION */
 .ngjs1-form-3 {
-    padding: 5rem 0;
-    background: #ffffff;
+    padding: 6rem 0;
+    background: var(--bg-white);
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
+    /* More gap */
     max-width: 1400px;
     margin: 0 auto;
     align-items: flex-start;
@@ -770,7 +856,7 @@ tr:hover {
 }
 
 .ngjs1-form-3-info h2 {
-    color: #000050;
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
@@ -782,14 +868,15 @@ tr:hover {
     width: 100% !important;
     height: 300px !important;
     min-height: 300px !important;
-    border-radius: 0.5rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
 }
 
-/* Blog Section */
+/* 12. BLOG SECTION */
 .ngjs1-blog-section {
-    padding: 5rem 0;
-    background: #f7fafc;
+    padding: 6rem 0;
+    background: var(--bg-light);
 }
 
 .ngjs1-blog-container {
@@ -800,15 +887,15 @@ tr:hover {
 
 .ngjs1-blog-heading {
     text-align: center;
-    color: #000050;
+    color: var(--primary-color);
     margin-bottom: 0.75rem;
-    font-size: 1.875rem;
+    font-size: 2.5rem;
 }
 
 .ngjs1-blog-subheading {
     text-align: center;
-    color: #4a5568;
-    margin-bottom: 3rem;
+    color: var(--text-body);
+    margin-bottom: 3.5rem;
     font-size: 1.125rem;
 }
 
@@ -822,44 +909,52 @@ tr:hover {
     gap: 1.5rem;
     overflow-x: auto;
     scroll-behavior: smooth;
-    padding: 1rem 0;
+    padding: 1rem 0.5rem;
+    /* Padding for shadow */
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
 }
 
 .ngjs1-blog-slider::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
+    /* Chrome, Safari, Opera */
 }
 
 .ngjs1-blog-item-block {
     text-decoration: none;
     color: inherit;
     display: block;
-    min-width: 320px;
-    max-width: 320px;
+    min-width: 340px;
+    /* Slightly wider */
+    max-width: 340px;
     flex-shrink: 0;
 }
 
 .ngjs1-blog-item {
-    background: #ffffff;
-    border-radius: 1rem;
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-md);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     height: 100%;
     display: flex;
     flex-direction: column;
+    border: 1px solid var(--border-color);
 }
 
 .ngjs1-blog-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 80, 0.15);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-color);
 }
 
 .ngjs1-blog-item-img {
     width: 100%;
-    height: 220px;
+    height: 200px;
+    /* Standardized height */
     object-fit: cover;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -877,20 +972,20 @@ tr:hover {
 
 .ngjs1-blog-item-info p {
     font-size: 0.875rem;
-    color: #718096;
+    color: var(--text-light);
     margin-bottom: 0.75rem;
     font-weight: 500;
 }
 
 .ngjs1-blog-item-info h3 {
     font-size: 1.125rem;
-    color: #000050;
+    color: var(--text-dark);
     line-height: 1.4;
     transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ngjs1-blog-item:hover h3 {
-    color: #1a2a6c;
+    color: var(--primary-color);
 }
 
 /* Blog Slider Navigation Buttons */
@@ -901,12 +996,12 @@ tr:hover {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: #ffffff;
-    border: 2px solid #000050;
-    color: #000050;
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-md);
     z-index: 10;
     display: flex;
     align-items: center;
@@ -914,10 +1009,11 @@ tr:hover {
 }
 
 .ngjs1-blog-nav-btn:hover {
-    background: #000050;
-    color: #ffffff;
+    background: var(--primary-color);
+    color: var(--bg-white);
+    border-color: var(--primary-color);
     transform: translateY(-50%) scale(1.08);
-    box-shadow: 0 8px 20px rgba(0, 0, 80, 0.2);
+    box-shadow: var(--shadow-lg);
 }
 
 .ngjs1-blog-nav-btn svg {
@@ -932,9 +1028,11 @@ tr:hover {
     right: -20px;
 }
 
-/* Google Reviews Section */
+/* 13. GOOGLE REVIEWS */
 .ngjs1-reviews-section {
     padding: 4rem 0 !important;
+    background-color: var(--bg-white);
+    /* White background */
 }
 
 .ngjs1-reviews-iframe-wrapper {
@@ -949,13 +1047,13 @@ tr:hover {
     max-height: 500px !important;
     min-height: 400px !important;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: var(--radius-lg);
 }
 
-/* FAQ Section */
+/* 14. FAQ SECTION */
 .ngjs1-faq-1 {
-    padding: 5rem 0;
-    background: #f7fafc;
+    padding: 6rem 0;
+    background: var(--bg-light);
 }
 
 .ngjs1-faq-1-container {
@@ -966,8 +1064,8 @@ tr:hover {
 
 .ngjs1-faq-1-container h2 {
     text-align: center;
-    color: #000050;
-    margin-bottom: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 3.5rem;
 }
 
 .ngjs1-faq-1-content {
@@ -977,15 +1075,17 @@ tr:hover {
 }
 
 .ngjs1-faq-1-item {
-    background: #ffffff;
-    border-radius: 0.75rem;
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 .ngjs1-faq-1-item:hover {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
 }
 
 .ngjs1-faq-question {
@@ -994,18 +1094,22 @@ tr:hover {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
-    background: #ffffff;
+    background: var(--bg-white);
     border: none;
     cursor: pointer;
     text-align: left;
     font-size: 1.125rem;
     font-weight: 600;
-    color: #000050;
+    color: var(--text-dark);
     transition: all 0.3s ease;
 }
 
 .ngjs1-faq-question:hover {
-    background: transparent;
+    color: var(--primary-color);
+}
+
+.ngjs1-faq-1-item.active .ngjs1-faq-question {
+    color: var(--primary-color);
 }
 
 .ngjs1-faq-question span {
@@ -1016,11 +1120,12 @@ tr:hover {
 .ngjs1-faq-icon {
     flex-shrink: 0;
     transition: transform 0.3s ease;
-    color: #000050;
+    color: var(--text-light);
 }
 
 .ngjs1-faq-1-item.active .ngjs1-faq-icon {
     transform: rotate(180deg);
+    color: var(--primary-color);
 }
 
 .ngjs1-faq-answer {
@@ -1035,31 +1140,32 @@ tr:hover {
 
 .ngjs1-faq-answer p {
     padding: 0 1.5rem 1.5rem 1.5rem;
-    color: #4a5568;
+    color: var(--text-body);
     line-height: 1.8;
     margin: 0;
+    font-size: 1.05rem;
+    /* Slightly larger answer text */
 }
 
-/* CTA Section */
+/* 15. FINAL CTA */
 .ngjs1-cta-1 {
-    padding: 5rem 0;
-    background: #ffffff;
-    margin-top: 120px;
+    padding: 6rem 0;
+    background: var(--bg-white);
 }
 
 .ngjs1-cta-1-container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
-    background: #E8EEF5;
-    border-radius: 2rem;
+    background: var(--primary-light);
+    /* Use light blue bg */
+    border-radius: var(--radius-xl);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: flex-end;
+    align-items: stretch;
     padding: 0;
-    overflow: visible;
-    min-height: 400px;
+    overflow: hidden;
 }
 
 .ngjs1-cta-1-left {
@@ -1070,68 +1176,60 @@ tr:hover {
     padding: 4rem 3rem;
 }
 
-.cta-icon {
-    display: inline-block;
-    width: fit-content;
-}
-
 .ngjs1-cta-1-left h2 {
-    color: #1a1a1a;
+    color: var(--text-dark);
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 800;
     margin: 0;
     line-height: 1.2;
 }
 
 .ngjs1-cta-1-left p {
-    color: #4a5568;
+    color: var(--text-body);
     font-size: 1.125rem;
     line-height: 1.6;
     margin: 0;
 }
 
 .btn-cta {
-    background: #7DD3E8 !important;
-    color: #ffffff !important;
+    background: var(--primary-color) !important;
+    color: var(--bg-white) !important;
     border: none !important;
-    padding: 1rem 2rem !important;
-    border-radius: 2rem !important;
-    font-size: 1rem !important;
+    padding: 1rem 2.5rem !important;
+    /* Chunky CTA */
+    border-radius: var(--radius-md) !important;
+    font-size: 1.125rem !important;
     font-weight: 600 !important;
     text-decoration: none !important;
     display: inline-block !important;
     width: fit-content !important;
     transition: all 0.3s ease !important;
     cursor: pointer !important;
+    box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.3) !important;
 }
 
 .btn-cta:hover {
-    background: #5BC0D9 !important;
+    background: var(--primary-dark) !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 4px 12px rgba(125, 211, 232, 0.3) !important;
+    box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.35) !important;
 }
 
 .ngjs1-cta-1-right {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: stretch;
     height: 100%;
-    position: relative;
 }
 
 .ngjs1-cta-1-right img {
-    width: 350px;
-    max-width: 1000px;
-    height: auto;
-    object-fit: contain;
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    object-fit: cover;
     border-radius: 0;
-    position: absolute;
-    bottom: 0;
-    top: -100px;
-    right: 77px;
 }
 
-/* Responsive Design */
+/* 16. RESPONSIVE DESIGN */
 @media (max-width: 1200px) {
     .ngjs1-course-content {
         gap: 1.5rem;
@@ -1139,105 +1237,105 @@ tr:hover {
 }
 
 @media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
-    h3 { font-size: 1.5rem; }
-    
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
     /* Pricing Section Responsive */
     .pricing-heading {
         font-size: 2rem !important;
     }
-    
+
     .pricing-subheading {
         font-size: 1rem !important;
         margin-bottom: 2rem !important;
     }
-    
+
     /* Reduce section padding on mobile */
     .ngjs1-feature-4,
     .ngjs1-feature-1,
     .ngjs1-course-section,
-    .ngjs1-bundle-section,
     .ngjs1-form-3,
     .ngjs1-blog-section,
     .ngjs1-faq-1,
     .ngjs1-cta-1 {
         padding: 4rem 0 !important;
     }
-    
+
     .basic-landing-2-container {
         padding: 4rem 0;
     }
-    
+
     .ngjs1-blog-slider {
         gap: 1rem;
     }
-    
+
     .ngjs1-blog-item-block {
         min-width: 280px;
         max-width: 280px;
     }
-    
+
     .ngjs1-blog-nav-btn {
         width: 40px;
         height: 40px;
     }
-    
+
     .ngjs1-blog-nav-prev {
         left: -10px;
     }
-    
+
     .ngjs1-blog-nav-next {
         right: -10px;
     }
-    
+
     .container {
         padding: 0 1rem;
     }
-    
+
     .hero-2-section-container,
     .ngjs1-feature-4-container {
         grid-template-columns: 1fr;
     }
-    
+
     .ngjs1-form-3 {
         flex-direction: column;
     }
-    
+
     .ngjs1-cta-1-container {
         grid-template-columns: 1fr;
         gap: 0;
         padding: 0;
-        min-height: auto;
-        overflow: hidden;
     }
-    
+
     .ngjs1-cta-1-left {
         text-align: left;
         padding: 3rem 2rem;
     }
-    
+
     .ngjs1-cta-1-left h2 {
         font-size: 2rem;
     }
-    
+
     .ngjs1-cta-1-left p {
         font-size: 1rem;
     }
-    
+
     .ngjs1-cta-1-right {
         justify-content: center;
         height: auto;
     }
-    
+
     .ngjs1-cta-1-right img {
-        width: 250px;
         max-width: 100%;
         height: auto;
-        position: relative;
-        top: auto;
-        right: auto;
-        bottom: 0;
         object-fit: contain;
     }
 
@@ -1245,321 +1343,232 @@ tr:hover {
         grid-template-columns: 1fr !important;
         gap: 1.5rem !important;
     }
-    
+
     .ngjs1-course-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .ngjs1-bundle-content {
         grid-template-columns: 1fr;
     }
 
     .btn {
         margin: 0.5rem 0;
     }
-    
+
     .basic-landing-2-right .btn {
         min-width: 200px;
         width: auto;
     }
-    
+
     .hero-2-section {
         padding: 4rem 0;
     }
-    
+
     .ngjs1-form-3-img {
         min-height: 200px;
     }
-    
+
     .ngjs1-form-3-img iframe {
         height: 200px !important;
         min-height: 200px !important;
     }
-    
+
     .ngjs1-reviews-section {
         padding: 3rem 0 !important;
     }
-    
+
     .ngjs1-reviews-iframe-wrapper iframe {
         height: 400px !important;
         max-height: 400px !important;
         min-height: 350px !important;
     }
-    
+
     /* Steps Section Mobile Overrides */
     #tn-steps-section {
         padding: 4rem 0 !important;
     }
-    
+
     #tn-steps-section .ngjs1-feature-1-container {
         padding: 0 1rem !important;
     }
-    
+
     #tn-steps-section h2 {
         font-size: 2rem !important;
     }
-    
+
     #tn-steps-section .tn-steps-description {
         font-size: 1rem !important;
     }
-    
+
     #tn-steps-section .ngjs1-feature-1-content {
         grid-template-columns: 1fr !important;
         gap: 1.5rem !important;
     }
-    
+
     #tn-steps-section .tn-steps-footer {
         margin: 2.5rem auto 1.5rem !important;
     }
 }
 
 @media (max-width: 480px) {
+
     .container,
     .ngjs1-feature-1-container,
     .ngjs1-course-container,
-    .ngjs1-bundle-container,
     .ngjs1-faq-1-container {
         padding: 0 0.75rem !important;
     }
-    
+
     .ngjs1-feature-1-item,
     .ngjs1-course-item,
     .ngjs1-bundle-item {
         margin-bottom: 1rem !important;
     }
-    
+
     /* Pricing Section Small Mobile */
     .pricing-heading {
         font-size: 1.75rem !important;
     }
-    
+
     .pricing-subheading {
         font-size: 0.95rem !important;
         margin-bottom: 2rem !important;
     }
-    
+
     /* Testimonials Responsive */
     .testimonial-text {
         font-size: 1rem !important;
         line-height: 1.7 !important;
     }
-    
+
     .testimonial-author {
         font-size: 0.875rem !important;
     }
-    
+
     .ngjs1-blog-slider-wrapper {
         padding: 1rem 1.5rem 2rem;
     }
-    
+
     .ngjs1-blog-slider {
         gap: 0.75rem;
     }
-    
+
     .ngjs1-blog-item-block {
         min-width: 260px;
         max-width: 260px;
     }
-    
+
     .ngjs1-blog-nav-btn {
         width: 36px;
         height: 36px;
     }
-    
+
     .ngjs1-blog-nav-prev {
         left: 0;
     }
-    
+
     .ngjs1-blog-nav-next {
         right: 0;
     }
-    
+
     .ngjs1-blog-heading {
         font-size: 1.5rem;
     }
-    
+
     .ngjs1-reviews-section {
         padding: 2rem 0 !important;
     }
-    
+
     .ngjs1-reviews-iframe-wrapper iframe {
         height: 350px !important;
         max-height: 350px !important;
         min-height: 300px !important;
     }
-    
+
     /* Steps Section Small Mobile Overrides */
     #tn-steps-section {
         padding: 3rem 0 !important;
     }
-    
+
     #tn-steps-section .ngjs1-feature-1-container {
         padding: 0 0.75rem !important;
     }
-    
+
     #tn-steps-section h2 {
         font-size: 1.75rem !important;
     }
-    
+
     #tn-steps-section .tn-steps-description {
         font-size: 0.95rem !important;
         margin-bottom: 2rem !important;
     }
-    
+
     #tn-steps-section .ngjs1-feature-1-content {
         gap: 1rem !important;
     }
-    
+
     #tn-steps-section .ngjs1-feature-1-item {
         padding: 1.5rem 1.25rem !important;
     }
-    
+
     #tn-steps-section .tn-steps-footer {
         margin: 2rem auto 1rem !important;
     }
-    
+
     #tn-steps-section .tn-steps-footer h3 {
         font-size: 1.25rem !important;
     }
-    
+
     /* CTA Section Small Mobile */
     .ngjs1-cta-1-container {
         padding: 0;
         border-radius: 1.5rem;
-        min-height: auto;
     }
-    
+
     .ngjs1-cta-1-left {
         padding: 2rem 1.5rem;
     }
-    
+
     .ngjs1-cta-1-left h2 {
         font-size: 1.75rem;
     }
-    
+
     .ngjs1-cta-1-left p {
         font-size: 0.95rem;
     }
-    
-    .ngjs1-cta-1-right img {
-        width: 220px;
-        position: relative;
-        top: auto;
-        right: auto;
-    }
-    
+
     .btn-cta {
         padding: 0.875rem 1.75rem !important;
         font-size: 0.95rem !important;
     }
 }
 
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* 17. UTILITY & MISC */
+.text-center {
+    text-align: center;
 }
 
-.hero-2-section-text,
-.ngjs1-feature-4-info,
-.ngjs1-feature-1-item,
-.ngjs1-course-item,
-.ngjs1-bundle-item,
-.ngjs1-blog-item {
-    animation: fadeInUp 0.8s ease-out;
+.mb-0 {
+    margin-bottom: 0 !important;
 }
 
-/* Removed separate animation rule for FAQ items as it's now an accordion */
-
-/* Utility Classes */
-.text-center { text-align: center; }
-.mb-0 { margin-bottom: 0 !important; }
-.mr-auto { margin-right: auto; }
-.mr-2 { margin-right: 0.5rem; }
-
-/* Remove outline on buttons */
-button, .btn {
-    outline: none;
+.mr-auto {
+    margin-right: auto;
 }
 
-button:focus, .btn:focus {
-    box-shadow: 0 0 0 2px #000050;
+.mr-2 {
+    margin-right: 0.5rem;
 }
 
-/* Slick slider overrides */
-.gjs-slick .slick-dots {
-    bottom: -50px;
-}
-
-.gjs-slick .slick-dots li button:before {
-    color: #000050;
-}
-
-/* Links */
-a {
-    color: #3182ce;
-    text-decoration: none;
-    transition: all 0.15s ease-out;
-}
-
-a:hover {
-    color: #000050;
-}
-
-/* Remove links from course items */
-.ngjs1-course-item-block,
-.ngjs1-bundle-item-block {
-    text-decoration: none;
-    color: inherit;
-}
-
-.ngjs1-course-item-block:hover,
-.ngjs1-bundle-item-block:hover {
-    color: inherit;
+/* Special formatting for pro tips */
+.ngjs1-feature-4-span {
+    background: var(--bg-light);
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--primary-color);
+    display: block;
+    margin: 1.5rem 0;
 }
 
 /* Form elements */
 iframe {
     border: none;
-    border-radius: 0.5rem;
-}
-
-/* HR styling */
-hr {
-    border: none;
-    height: 1px;
-    background: #e2e8f0;
-    margin: 2rem 0;
-}
-
-/* Bold text in content */
-b, strong {
-    font-weight: 600;
-    color: #2d3748;
-}
-
-/* Special formatting for pro tips */
-.ngjs1-feature-4-span {
-    background: #edf2f7;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border-left: 4px solid #000050;
-    display: block;
-    margin: 1.5rem 0;
-}
-
-/* Remove default styles that might interfere */
-section {
-    position: relative;
-}
-
-/* Hide empty divs */
-div:empty {
-    display: none;
+    border-radius: var(--radius-lg);
 }
