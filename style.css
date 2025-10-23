@@ -24,7 +24,8 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 clamp(1rem, 3vw, 1.5rem);
+    width: 100%;
 }
 
 /* Typography */
@@ -35,17 +36,17 @@ h1, h2, h3, h4, h5, h6 {
     color: #2d3748;
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.25rem; }
-h3 { font-size: 1.875rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1.125rem; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 2.25rem); }
+h3 { font-size: clamp(1.25rem, 3vw, 1.875rem); }
+h4 { font-size: clamp(1.125rem, 2.5vw, 1.5rem); }
+h5 { font-size: clamp(1rem, 2vw, 1.25rem); }
+h6 { font-size: clamp(0.95rem, 1.5vw, 1.125rem); }
 
 p {
     margin-bottom: 1rem;
     color: #4a5568;
-    font-size: 1.125rem;
+    font-size: clamp(0.95rem, 2vw, 1.125rem);
 }
 
 /* Buttons */
@@ -88,7 +89,7 @@ p {
 .hero-2-section {
     background: linear-gradient(135deg, #000050, #1a2a6c);
     color: #ffffff;
-    padding: 3rem 0;
+    padding: clamp(2rem, 4vw, 3rem) 0;
     position: relative;
     overflow: hidden;
 }
@@ -107,50 +108,51 @@ p {
 .hero-2-section-container {
     display: grid;
     grid-template-columns: 1fr 1.3fr;
-    gap: 1rem;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
     align-items: center;
     position: relative;
-    
     z-index: 1;
 }
-.hero-2-section-text{
-    padding-left: 3rem;
-}
-.hero-2-section-text h2 {
-    font-size: 2.5rem;
-    line-height: 1.1;
-    margin-bottom: 1rem;
 
+.hero-2-section-text{
+    padding-left: clamp(1rem, 3vw, 3rem);
+}
+
+.hero-2-section-text h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.1;
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
     color: #ffffff;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .hero-2-section-text p {
-    font-size: 1.125rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
     color: rgba(255,255,255,0.9);
-    margin-bottom: 1.5rem;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
 }
 
 .hero-2-img {
     height: auto;
     width: 100%;
     z-index: 1 !important;
-    max-height: 480px;
-    object-fit: contain;
-    border-radius: 1rem;
+    max-height: clamp(350px, 50vh, 500px);
+    object-fit: contain !important;
+    object-position: center;
+    border-radius: clamp(0.5rem, 1.5vw, 1rem);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform: scale(1);
-    mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 90%, transparent 100%);
 }
 
 .hero-2-img:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-4px) scale(1.01);
 }
 
 /* Basic Landing Section */
 .basic-landing-2-container {
-    padding: 2rem 0;
+    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 3vw, 1.5rem);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -164,7 +166,9 @@ p {
 }
 
 .basic-landing-2-container p {
-    margin-bottom: 0.75rem;
+    margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
+    font-size: clamp(0.95rem, 2vw, 1.125rem);
+    line-height: 1.7;
 }
 
 .basic-landing-2-right {
@@ -172,13 +176,13 @@ p {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    margin-top: 1rem;
+    margin-top: clamp(0.75rem, 2vw, 1.25rem);
 }
 
 .basic-landing-2-right .btn {
-    min-width: 240px;
-    padding: 1.25rem 3rem;
-    font-size: 1.125rem;
+    min-width: clamp(180px, 40vw, 240px);
+    padding: clamp(0.875rem, 2vw, 1.25rem) clamp(1.5rem, 4vw, 3rem);
+    font-size: clamp(1rem, 2vw, 1.125rem);
 }
 body .sk-ww-google-reviews .sk-post__user-link {
     color: #151516 !important;
@@ -186,7 +190,7 @@ body .sk-ww-google-reviews .sk-post__user-link {
 /* Feature Sections */
 .ngjs1-feature-4,
 .ngjs1-feature-1 {
-    padding: 2rem 0 !important;
+    padding: clamp(2rem, 4vw, 3.5rem) 0 !important;
 }
 
 .ngjs1-feature-4:nth-child(even) {
@@ -200,34 +204,52 @@ body .sk-ww-google-reviews .sk-post__user-link {
 .ngjs1-feature-4-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: clamp(2rem, 4vw, 4rem);
     align-items: center;
     max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 3vw, 1.5rem);
 }
 
 .ngjs1-feature-4-img {
     width: 100%;
     height: auto;
-    border-radius: 1rem;
+    border-radius: clamp(0.5rem, 1.5vw, 1rem);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+    max-height: 450px;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Larger feature images on desktop */
+@media (min-width: 1201px) {
+    .ngjs1-feature-4-img {
+        max-height: 750px;
+    }
 }
 
 .ngjs1-feature-4-img:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
 .ngjs1-feature-4-info h2 {
     color: #000050;
-    margin-bottom: 1.5rem;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
 }
 
 .ngjs1-feature-4-info h3 {
     color: #000050;
-    font-size: 1.25rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+    margin-top: clamp(1.25rem, 2.5vw, 2rem);
+    margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+}
+
+.ngjs1-feature-4-info p {
+    font-size: clamp(0.95rem, 2vw, 1.125rem);
+    line-height: 1.7;
 }
 
 .course-topics {
@@ -260,15 +282,16 @@ body .sk-ww-google-reviews .sk-post__user-link {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 2rem 0;
+    margin: clamp(1rem, 2.5vw, 2rem) 0;
     background: #ffffff;
-    border-radius: 0.5rem;
+    border-radius: clamp(0.25rem, 1vw, 0.5rem);
     overflow: hidden;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    font-size: clamp(0.875rem, 1.8vw, 1rem);
 }
 
 th, td {
-    padding: 1.25rem 1.5rem;
+    padding: clamp(0.75rem, 2vw, 1.25rem) clamp(0.75rem, 2vw, 1.5rem);
     text-align: left;
     border-bottom: 1px solid #e2e8f0;
 }
@@ -277,6 +300,7 @@ th {
     background: #000050;
     font-weight: 600;
     color: #ffffff;
+    font-size: clamp(0.875rem, 1.8vw, 1rem);
 }
 
 tr:hover {
@@ -285,7 +309,7 @@ tr:hover {
 
 /* Steps Section - Highly Specific Selectors for Builder Compatibility */
 #tn-steps-section {
-    padding: 5rem 0 !important;
+    padding: clamp(2rem, 4vw, 3.5rem) 0 !important;
     box-sizing: border-box !important;
     margin: 0 !important;
 }
@@ -293,7 +317,7 @@ tr:hover {
 #tn-steps-section .ngjs1-feature-1-container {
     max-width: 1400px !important;
     margin: 0 auto !important;
-    padding: 0 1.5rem !important;
+    padding: 0 clamp(1rem, 3vw, 1.5rem) !important;
     box-sizing: border-box !important;
 }
 
@@ -397,7 +421,7 @@ tr:hover {
 .ngjs1-feature-1-container {
     max-width: 1400px !important;
     margin: 0 auto !important;
-    padding: 0 1.5rem !important;
+    padding: 0 clamp(1rem, 3vw, 1.5rem) !important;
 }
 
 .ngjs1-feature-1-container h2 {
@@ -415,26 +439,31 @@ tr:hover {
 
 .ngjs1-feature-1-item {
     background: #ffffff !important;
-    padding: 2rem 1.75rem !important;
-    border-radius: 1rem !important;
+    padding: clamp(1.5rem, 3vw, 2rem) clamp(1.25rem, 2.5vw, 1.75rem) !important;
+    border-radius: clamp(0.5rem, 1.5vw, 1rem) !important;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     text-align: center !important;
-    border-top: 4px solid #000050 !important;
+    border-top: clamp(3px, 0.6vw, 4px) solid #000050 !important;
     border-left: none !important;
     border-right: none !important;
     border-bottom: none !important;
 }
 
 .ngjs1-feature-1-item:hover {
-    transform: translateY(-4px) !important;
+    transform: translateY(-3px) !important;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
 }
 
 .ngjs1-feature-1-item h3 {
     color: #000050 !important;
-    margin-bottom: 0.75rem !important;
-    font-size: 1.25rem !important;
+    margin-bottom: clamp(0.5rem, 1.2vw, 0.75rem) !important;
+    font-size: clamp(1.125rem, 2.5vw, 1.25rem) !important;
+}
+
+.ngjs1-feature-1-item p {
+    font-size: clamp(0.9rem, 2vw, 1rem) !important;
+    line-height: 1.6 !important;
 }
 
 .ngjs1-feature-1-item p:first-of-type {
@@ -501,7 +530,7 @@ tr:hover {
 /* Course Sections */
 .ngjs1-course-section {
     background: #f7fafc;
-    padding: 5rem 0;
+    padding: clamp(2rem, 4vw, 3.5rem) 0;
 }
 
 .ngjs1-course-section.pricing-section {
@@ -511,16 +540,16 @@ tr:hover {
 .ngjs1-course-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 clamp(1rem, 3vw, 1.5rem);
     display: block !important;
 }
 
 .pricing-heading {
     text-align: center !important;
     color: #000050 !important;
-    margin: 0 0 1rem 0 !important;
+    margin: 0 0 clamp(0.75rem, 1.5vw, 1rem) 0 !important;
     padding: 0 !important;
-    font-size: 2.5rem !important;
+    font-size: clamp(1.75rem, 4vw, 2.5rem) !important;
     font-weight: 700 !important;
     line-height: 1.2 !important;
 }
@@ -528,9 +557,9 @@ tr:hover {
 .pricing-subheading {
     text-align: center !important;
     color: #4a5568 !important;
-    margin: 0 0 3rem 0 !important;
+    margin: 0 0 clamp(2rem, 3.5vw, 3rem) 0 !important;
     padding: 0 !important;
-    font-size: 1.125rem !important;
+    font-size: clamp(1rem, 2vw, 1.125rem) !important;
     line-height: 1.6 !important;
     max-width: 700px !important;
     margin-left: auto !important;
@@ -560,7 +589,7 @@ tr:hover {
 
 .ngjs1-course-item {
     background: #ffffff;
-    border-radius: 1rem;
+    border-radius: clamp(0.5rem, 1.5vw, 1rem);
     overflow: hidden;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -570,21 +599,33 @@ tr:hover {
 }
 
 .ngjs1-course-item:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .ngjs1-course-item-img {
     width: 100%;
-    height: 160px;
-    object-fit: cover;
+    height: clamp(140px, 20vw, 180px);
+    object-fit: contain;
+    object-position: center;
+    background: #f7fafc;
 }
 
 .ngjs1-course-info {
-    padding: 1.25rem;
+    padding: clamp(1rem, 2.5vw, 1.25rem);
     display: flex;
     flex-direction: column;
     flex: 1;
+}
+
+.ngjs1-course-text h3 {
+    font-size: clamp(1rem, 2.2vw, 1.125rem) !important;
+    margin-bottom: 0.5rem;
+}
+
+.ngjs1-course-text p {
+    font-size: clamp(0.875rem, 1.8vw, 0.95rem) !important;
+    line-height: 1.5;
 }
 
 .ngjs1-course-author {
@@ -649,7 +690,7 @@ tr:hover {
 .ngjs1-bundle-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 clamp(1rem, 3vw, 1.5rem);
 }
 
 .ngjs1-bundle-content {
@@ -685,7 +726,9 @@ tr:hover {
 .ngjs1-bundle-item-img img {
     width: 100%;
     height: 160px;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
+    background: #f7fafc;
 }
 
 .ngjs1-bundle-item-info {
@@ -766,7 +809,7 @@ tr:hover {
 
 .ngjs1-form-3-container {
     flex: 1;
-    padding: 0 1.5rem;
+    padding: 0 clamp(1rem, 3vw, 1.5rem);
 }
 
 .ngjs1-form-3-content {
@@ -800,28 +843,28 @@ tr:hover {
 
 /* Blog Section */
 .ngjs1-blog-section {
-    padding: 5rem 0;
+    padding: clamp(2rem, 4vw, 3.5rem) 0;
     background: #f7fafc;
 }
 
 .ngjs1-blog-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 clamp(1rem, 3vw, 1.5rem);
 }
 
 .ngjs1-blog-heading {
     text-align: center;
     color: #000050;
-    margin-bottom: 0.75rem;
-    font-size: 1.875rem;
+    margin-bottom: clamp(0.5rem, 1.2vw, 0.75rem);
+    font-size: clamp(1.5rem, 3.5vw, 1.875rem);
 }
 
 .ngjs1-blog-subheading {
     text-align: center;
     color: #4a5568;
-    margin-bottom: 3rem;
-    font-size: 1.125rem;
+    margin-bottom: clamp(2rem, 3.5vw, 3rem);
+    font-size: clamp(1rem, 2vw, 1.125rem);
 }
 
 .ngjs1-blog-slider-wrapper {
@@ -872,7 +915,9 @@ tr:hover {
 .ngjs1-blog-item-img {
     width: 100%;
     height: 220px;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
+    background: #f7fafc;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -966,20 +1011,21 @@ tr:hover {
 
 /* FAQ Section */
 .ngjs1-faq-1 {
-    padding: 5rem 0;
+    padding: clamp(2rem, 4vw, 3.5rem) 0;
     background: #f7fafc;
 }
 
 .ngjs1-faq-1-container {
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 clamp(1rem, 3vw, 1.5rem);
 }
 
 .ngjs1-faq-1-container h2 {
     text-align: center;
     color: #000050;
-    margin-bottom: 3rem;
+    margin-bottom: clamp(2rem, 3.5vw, 3rem);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
 }
 
 .ngjs1-faq-1-content {
@@ -1005,12 +1051,12 @@ tr:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem;
+    padding: clamp(1rem, 2.5vw, 1.5rem);
     background: #ffffff;
     border: none;
     cursor: pointer;
     text-align: left;
-    font-size: 1.125rem;
+    font-size: clamp(1rem, 2.2vw, 1.125rem);
     font-weight: 600;
     color: #000050;
     transition: all 0.3s ease;
@@ -1054,22 +1100,21 @@ tr:hover {
 
 /* CTA Section */
 .ngjs1-cta-1 {
-    padding: 5rem 0;
+    padding: clamp(2rem, 4vw, 3.5rem) 0;
     background: #ffffff;
-    margin-top: 120px;
+    margin-top: clamp(60px, 12vw, 120px);
 }
 
 .ngjs1-cta-1-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 clamp(1rem, 3vw, 1.5rem);
     background: #E8EEF5;
-    border-radius: 2rem;
+    border-radius: clamp(1rem, 2vw, 2rem);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: clamp(2rem, 4vw, 4rem);
     align-items: flex-end;
-    padding: 0;
     overflow: visible;
     min-height: 400px;
 }
@@ -1078,8 +1123,8 @@ tr:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1.5rem;
-    padding: 4rem 3rem;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    padding: clamp(2rem, 4vw, 4rem) clamp(1.5rem, 3vw, 3rem);
 }
 
 .cta-icon {
@@ -1089,7 +1134,7 @@ tr:hover {
 
 .ngjs1-cta-1-left h2 {
     color: #1a1a1a;
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 700;
     margin: 0;
     line-height: 1.2;
@@ -1097,7 +1142,7 @@ tr:hover {
 
 .ngjs1-cta-1-left p {
     color: #4a5568;
-    font-size: 1.125rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: 1.6;
     margin: 0;
 }
@@ -1136,6 +1181,7 @@ tr:hover {
     max-width: 1000px;
     height: auto;
     object-fit: contain;
+    object-position: center bottom;
     border-radius: 0;
     position: absolute;
     bottom: 0;
@@ -1143,118 +1189,44 @@ tr:hover {
     right: 77px;
 }
 
-/* Responsive Design */
-@media (max-width: 1400px) {
-    /* Optimize for 12-13 inch laptops */
-    .hero-2-section {
-        padding: 2.5rem 0;
-    }
-    
-    .hero-2-section-container {
-        gap: 1rem;
-    }
-    
-    .hero-2-img {
-        transform: scale(0.95);
-        max-height: 440px;
-        object-fit: contain;
-    }
-    
-    .basic-landing-2-container {
-        padding: 1.5rem 0;
-    }
-    
-    .hero-2-section-text {
-        padding-left: 2rem;
-    }
-}
-
+/* Responsive Design - Most sizing handled by clamp() above */
 @media (max-width: 1200px) {
+    /* Minor adjustments for tablets */
     .ngjs1-course-content {
-        gap: 1.5rem;
-    }
-    
-    /* Reduce hero section height for smaller laptops and tablets */
-    .hero-2-section {
-        padding: 2rem 0;
-    }
-    
-    .hero-2-section-text h2 {
-        font-size: 2rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .hero-2-section-text p {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .hero-2-section-container {
-        gap: 0.75rem;
-    }
-    
-    .hero-2-img {
-        transform: scale(0.92);
-        max-height: 400px;
-        object-fit: contain;
-    }
-    
-    .basic-landing-2-container {
-        padding: 1.25rem 0;
-    }
-    
-    .hero-2-section-text {
-        padding-left: 1.5rem;
+        grid-template-columns: repeat(2, 1fr) !important;
     }
 }
 
 @media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
-    h3 { font-size: 1.5rem; }
-    
-    /* Pricing Section Responsive */
-    .pricing-heading {
-        font-size: 2rem !important;
-    }
-    
-    .pricing-subheading {
-        font-size: 1rem !important;
-        margin-bottom: 2rem !important;
-    }
-    
-    /* Reduce section padding on mobile */
-    .ngjs1-feature-4,
-    .ngjs1-feature-1,
-    .ngjs1-course-section,
-    .ngjs1-bundle-section,
-    .ngjs1-form-3,
-    .ngjs1-blog-section,
-    .ngjs1-faq-1,
-    .ngjs1-cta-1 {
-        padding: 4rem 0 !important;
-    }
-    
-    .basic-landing-2-container {
-        padding: 1.5rem 0;
+    /* Layout Changes - Convert to single column */
+    .hero-2-section-container,
+    .ngjs1-feature-4-container {
+        grid-template-columns: 1fr;
+        gap: clamp(1.5rem, 3vw, 2rem);
     }
     
     .hero-2-section-text {
-        padding-left: 1rem;
+        padding-left: clamp(0.5rem, 2vw, 1rem);
+        text-align: center;
+    }
+    
+    .hero-2-img {
+        order: -1;
+        max-height: 400px;
     }
     
     .ngjs1-blog-slider {
-        gap: 1rem;
+        gap: clamp(0.75rem, 2vw, 1rem);
     }
     
     .ngjs1-blog-item-block {
-        min-width: 280px;
-        max-width: 280px;
+        min-width: clamp(260px, 70vw, 300px);
+        max-width: clamp(260px, 70vw, 300px);
     }
     
     .ngjs1-blog-nav-btn {
-        width: 40px;
-        height: 40px;
+        width: clamp(36px, 8vw, 44px);
+        height: clamp(36px, 8vw, 44px);
     }
     
     .ngjs1-blog-nav-prev {
@@ -1265,38 +1237,38 @@ tr:hover {
         right: -10px;
     }
     
-    .container {
-        padding: 0 1rem;
-    }
-    
-    .hero-2-section-container,
-    .ngjs1-feature-4-container {
-        grid-template-columns: 1fr;
-    }
-    
     .ngjs1-form-3 {
         flex-direction: column;
     }
     
+    /* Grid Layout Changes for Mobile */
+    .ngjs1-feature-1-content {
+        grid-template-columns: 1fr !important;
+        gap: clamp(1.25rem, 3vw, 1.75rem) !important;
+    }
+    
+    .ngjs1-course-content {
+        grid-template-columns: 1fr !important;
+        gap: clamp(1.25rem, 3vw, 1.75rem);
+    }
+    
+    .ngjs1-bundle-content {
+        grid-template-columns: 1fr !important;
+        gap: clamp(1.25rem, 3vw, 1.75rem);
+    }
+    
+    /* CTA Section Mobile Layout */
     .ngjs1-cta-1-container {
         grid-template-columns: 1fr;
         gap: 0;
         padding: 0;
         min-height: auto;
         overflow: hidden;
+        border-radius: clamp(1rem, 2vw, 2rem);
     }
     
     .ngjs1-cta-1-left {
-        text-align: left;
-        padding: 3rem 2rem;
-    }
-    
-    .ngjs1-cta-1-left h2 {
-        font-size: 2rem;
-    }
-    
-    .ngjs1-cta-1-left p {
-        font-size: 1rem;
+        text-align: center;
     }
     
     .ngjs1-cta-1-right {
@@ -1305,7 +1277,7 @@ tr:hover {
     }
     
     .ngjs1-cta-1-right img {
-        width: 250px;
+        width: clamp(200px, 50vw, 280px);
         max-width: 100%;
         height: auto;
         position: relative;
@@ -1313,49 +1285,7 @@ tr:hover {
         right: auto;
         bottom: 0;
         object-fit: contain;
-    }
-
-    .ngjs1-feature-1-content {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-    }
-    
-    .ngjs1-course-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .ngjs1-bundle-content {
-        grid-template-columns: 1fr;
-    }
-
-    .btn {
-        margin: 0.5rem 0;
-    }
-    
-    .basic-landing-2-right .btn {
-        min-width: 200px;
-        width: auto;
-    }
-    
-    .hero-2-section {
-        padding: 2rem 0;
-    }
-    
-    .hero-2-img {
-        transform: scale(0.92);
-        max-height: 360px;
-        object-fit: contain;
-    }
-    
-    .hero-2-section-text h2 {
-        font-size: 1.75rem;
-        line-height: 1.2;
-        margin-bottom: 0.75rem;
-    }
-    
-    .hero-2-section-text p {
-        font-size: 1rem;
-        margin-bottom: 1rem;
+        object-position: center;
     }
     
     .ngjs1-form-3-img {
@@ -1405,56 +1335,28 @@ tr:hover {
 }
 
 @media (max-width: 480px) {
-    .container,
-    .ngjs1-feature-1-container,
-    .ngjs1-course-container,
-    .ngjs1-bundle-container,
-    .ngjs1-faq-1-container {
-        padding: 0 0.75rem !important;
+    /* Small Mobile - Minimal Overrides (clamp handles most sizing) */
+    .container {
+        padding: 0 0.875rem !important;
     }
     
-    .ngjs1-feature-1-item,
-    .ngjs1-course-item,
-    .ngjs1-bundle-item {
-        margin-bottom: 1rem !important;
+    table {
+        font-size: 0.8125rem;
     }
     
-    /* Pricing Section Small Mobile */
-    .pricing-heading {
-        font-size: 1.75rem !important;
+    th, td {
+        padding: 0.625rem 0.75rem;
     }
     
-    .pricing-subheading {
-        font-size: 0.95rem !important;
-        margin-bottom: 2rem !important;
-    }
-    
-    /* Testimonials Responsive */
-    .testimonial-text {
-        font-size: 1rem !important;
-        line-height: 1.7 !important;
-    }
-    
-    .testimonial-author {
-        font-size: 0.875rem !important;
-    }
-    
-    .ngjs1-blog-slider-wrapper {
-        padding: 1rem 1.5rem 2rem;
-    }
-    
-    .ngjs1-blog-slider {
-        gap: 0.75rem;
-    }
-    
+    /* Blog Slider - Small screens */
     .ngjs1-blog-item-block {
-        min-width: 260px;
-        max-width: 260px;
+        min-width: 240px;
+        max-width: 240px;
     }
     
     .ngjs1-blog-nav-btn {
-        width: 36px;
-        height: 36px;
+        width: 34px;
+        height: 34px;
     }
     
     .ngjs1-blog-nav-prev {
@@ -1465,91 +1367,11 @@ tr:hover {
         right: 0;
     }
     
-    .ngjs1-blog-heading {
-        font-size: 1.5rem;
-    }
-    
-    .ngjs1-reviews-section {
-        padding: 2rem 0 !important;
-    }
-    
+    /* Iframe heights for small screens */
+    .ngjs1-form-3-img iframe,
     .ngjs1-reviews-iframe-wrapper iframe {
-        height: 350px !important;
-        max-height: 350px !important;
-        min-height: 300px !important;
-    }
-    
-    /* Steps Section Small Mobile Overrides */
-    #tn-steps-section {
-        padding: 3rem 0 !important;
-    }
-    
-    #tn-steps-section .ngjs1-feature-1-container {
-        padding: 0 0.75rem !important;
-    }
-    
-    #tn-steps-section h2 {
-        font-size: 1.75rem !important;
-    }
-    
-    #tn-steps-section .tn-steps-description {
-        font-size: 0.95rem !important;
-        margin-bottom: 2rem !important;
-    }
-    
-    #tn-steps-section .ngjs1-feature-1-content {
-        gap: 1rem !important;
-    }
-    
-    #tn-steps-section .ngjs1-feature-1-item {
-        padding: 1.5rem 1.25rem !important;
-    }
-    
-    #tn-steps-section .tn-steps-footer {
-        margin: 2rem auto 1rem !important;
-    }
-    
-    #tn-steps-section .tn-steps-footer h3 {
-        font-size: 1.25rem !important;
-    }
-    
-    /* CTA Section Small Mobile */
-    .ngjs1-cta-1-container {
-        padding: 0;
-        border-radius: 1.5rem;
-        min-height: auto;
-    }
-    
-    .ngjs1-cta-1-left {
-        padding: 2rem 1.5rem;
-    }
-    
-    .ngjs1-cta-1-left h2 {
-        font-size: 1.75rem;
-    }
-    
-    .ngjs1-cta-1-left p {
-        font-size: 0.95rem;
-    }
-    
-    .ngjs1-cta-1-right img {
-        width: 220px;
-        position: relative;
-        top: auto;
-        right: auto;
-    }
-    
-    .btn-cta {
-        padding: 0.875rem 1.75rem !important;
-        font-size: 0.95rem !important;
-    }
-    
-    .basic-landing-2-container {
-        padding: 1rem 0;
-    }
-    
-    .hero-2-section-text {
-        padding-left: 0.5rem;
+        height: clamp(280px, 60vw, 350px) !important;
+        min-height: 280px !important;
     }
 }
 
