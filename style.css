@@ -238,6 +238,19 @@ body .sk-ww-google-reviews .sk-post__user-link {
     color: #000050;
     margin-bottom: clamp(1rem, 2vw, 1.5rem);
     font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+    position: relative;
+    padding-bottom: clamp(1rem, 2vw, 1.25rem);
+}
+
+.ngjs1-feature-4-info h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #000050, #2563eb);
+    border-radius: 2px;
 }
 
 .ngjs1-feature-4-info h3 {
@@ -325,10 +338,23 @@ tr:hover {
     text-align: center !important;
     color: #000050 !important;
     margin: 0 0 1.5rem 0 !important;
-    padding: 0 !important;
+    padding: 0 0 1.25rem 0 !important;
     font-size: 2.5rem !important;
     line-height: 1.2 !important;
     font-weight: 700 !important;
+    position: relative !important;
+}
+
+#tn-steps-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #000050, #2563eb);
+    border-radius: 2px;
 }
 
 #tn-steps-section .tn-steps-description {
@@ -362,13 +388,17 @@ tr:hover {
 }
 
 #tn-steps-section .step-label {
-    color: #38a169 !important;
-    font-weight: 600 !important;
-    font-size: 0.875rem !important;
+    display: inline-block;
+    background: linear-gradient(135deg, #38a169, #48bb78);
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 0.8125rem !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
-    margin: 0 0 1rem 0 !important;
-    padding: 0 !important;
+    letter-spacing: 0.1em !important;
+    margin: 0 0 1.5rem 0 !important;
+    padding: 0.5rem 1.25rem !important;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3);
 }
 
 #tn-steps-section .ngjs1-feature-1-item h3 {
@@ -428,6 +458,20 @@ tr:hover {
     text-align: center !important;
     color: #000050 !important;
     margin-bottom: 1.5rem !important;
+    position: relative !important;
+    padding-bottom: 1.25rem !important;
+}
+
+.ngjs1-feature-1-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #000050, #2563eb);
+    border-radius: 2px;
 }
 
 .ngjs1-feature-1-content {
@@ -548,10 +592,23 @@ tr:hover {
     text-align: center !important;
     color: #000050 !important;
     margin: 0 0 clamp(0.75rem, 1.5vw, 1rem) 0 !important;
-    padding: 0 !important;
+    padding: 0 0 1.25rem 0 !important;
     font-size: clamp(1.75rem, 4vw, 2.5rem) !important;
     font-weight: 700 !important;
     line-height: 1.2 !important;
+    position: relative !important;
+}
+
+.pricing-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #000050, #2563eb);
+    border-radius: 2px;
 }
 
 .pricing-subheading {
@@ -596,6 +653,7 @@ tr:hover {
     display: flex;
     flex-direction: column;
     width: 100%;
+    border: 1px solid #e2e8f0;
 }
 
 .ngjs1-course-item:hover {
@@ -698,11 +756,13 @@ tr:hover {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 2rem;
     align-items: stretch;
+    overflow: visible;
 }
 
 .ngjs1-bundle-item-block {
     display: flex;
     height: 100%;
+    overflow: visible;
 }
 
 .ngjs1-bundle-item {
@@ -711,17 +771,36 @@ tr:hover {
     overflow: hidden;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid transparent;
+    border: 1px solid #e2e8f0;
     display: flex;
     flex-direction: column;
     width: 100%;
+    position: relative;
+}
+
+/* Bundle Badge Ribbon */
+.ngjs1-bundle-item::before {
+    content: 'BUNDLE';
+    position: absolute;
+    top: clamp(15px, 3vw, 20px);
+    right: clamp(-25px, -4vw, -30px);
+    background: linear-gradient(135deg, #38a169, #48bb78);
+    color: #ffffff;
+    padding: clamp(0.375rem, 1vw, 0.5rem) clamp(2rem, 4vw, 2.5rem);
+    font-size: clamp(0.625rem, 1.2vw, 0.75rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3);
+    z-index: 1;
+    text-transform: uppercase;
 }
 
 .ngjs1-bundle-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    border-color: #000050;
 }
+
 
 .ngjs1-bundle-item-img img {
     width: 100%;
@@ -827,6 +906,19 @@ tr:hover {
 .ngjs1-form-3-info h2 {
     color: #000050;
     margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 1.25rem;
+}
+
+.ngjs1-form-3-info h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #000050, #2563eb);
+    border-radius: 2px;
 }
 
 .ngjs1-form-3-img {
@@ -858,6 +950,20 @@ tr:hover {
     color: #000050;
     margin-bottom: clamp(0.5rem, 1.2vw, 0.75rem);
     font-size: clamp(1.5rem, 3.5vw, 1.875rem);
+    position: relative;
+    padding-bottom: clamp(1rem, 2vw, 1.25rem);
+}
+
+.ngjs1-blog-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #000050, #2563eb);
+    border-radius: 2px;
 }
 
 .ngjs1-blog-subheading {
@@ -1026,6 +1132,20 @@ tr:hover {
     color: #000050;
     margin-bottom: clamp(2rem, 3.5vw, 3rem);
     font-size: clamp(1.75rem, 4vw, 2.25rem);
+    position: relative;
+    padding-bottom: clamp(1rem, 2vw, 1.25rem);
+}
+
+.ngjs1-faq-1-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #000050, #2563eb);
+    border-radius: 2px;
 }
 
 .ngjs1-faq-1-content {
