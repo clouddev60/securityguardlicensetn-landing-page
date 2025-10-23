@@ -88,7 +88,7 @@ p {
 .hero-2-section {
     background: linear-gradient(135deg, #000050, #1a2a6c);
     color: #ffffff;
-    padding: 6rem 0;
+    padding: 3rem 0;
     position: relative;
     overflow: hidden;
 }
@@ -107,39 +107,45 @@ p {
 .hero-2-section-container {
     display: grid;
     grid-template-columns: 1fr 1.3fr;
-    gap: 4rem;
+    gap: 1rem;
     align-items: center;
     position: relative;
+    
     z-index: 1;
 }
-
+.hero-2-section-text{
+    padding-left: 3rem;
+}
 .hero-2-section-text h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+
     color: #ffffff;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .hero-2-section-text p {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     color: rgba(255,255,255,0.9);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .hero-2-img {
     height: auto;
     width: 100%;
-    object-fit: cover;
+    z-index: 1 !important;
+    max-height: 480px;
+    object-fit: contain;
     border-radius: 1rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: scale(1.05);
-    mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+    transform: scale(1);
+    mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
 }
 
 .hero-2-img:hover {
-    transform: translateY(-8px) scale(1.08);
+    transform: translateY(-8px) scale(1.02);
 }
 
 /* Basic Landing Section */
@@ -1132,9 +1138,51 @@ tr:hover {
 }
 
 /* Responsive Design */
+@media (max-width: 1400px) {
+    /* Optimize for 12-13 inch laptops */
+    .hero-2-section {
+        padding: 2.5rem 0;
+    }
+    
+    .hero-2-section-container {
+        gap: 1rem;
+    }
+    
+    .hero-2-img {
+        transform: scale(0.95);
+        max-height: 440px;
+        object-fit: contain;
+    }
+}
+
 @media (max-width: 1200px) {
     .ngjs1-course-content {
         gap: 1.5rem;
+    }
+    
+    /* Reduce hero section height for smaller laptops and tablets */
+    .hero-2-section {
+        padding: 2rem 0;
+    }
+    
+    .hero-2-section-text h2 {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .hero-2-section-text p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-2-section-container {
+        gap: 0.75rem;
+    }
+    
+    .hero-2-img {
+        transform: scale(0.92);
+        max-height: 400px;
+        object-fit: contain;
     }
 }
 
@@ -1264,7 +1312,24 @@ tr:hover {
     }
     
     .hero-2-section {
-        padding: 4rem 0;
+        padding: 2rem 0;
+    }
+    
+    .hero-2-img {
+        transform: scale(0.92);
+        max-height: 360px;
+        object-fit: contain;
+    }
+    
+    .hero-2-section-text h2 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+        margin-bottom: 0.75rem;
+    }
+    
+    .hero-2-section-text p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
     }
     
     .ngjs1-form-3-img {
