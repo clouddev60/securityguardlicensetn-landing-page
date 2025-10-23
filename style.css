@@ -150,7 +150,7 @@ p {
 
 /* Basic Landing Section */
 .basic-landing-2-container {
-    padding: 5rem 0;
+    padding: 2rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -163,12 +163,16 @@ p {
     text-align: left;
 }
 
+.basic-landing-2-container p {
+    margin-bottom: 0.75rem;
+}
+
 .basic-landing-2-right {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .basic-landing-2-right .btn {
@@ -176,11 +180,13 @@ p {
     padding: 1.25rem 3rem;
     font-size: 1.125rem;
 }
-
+body .sk-ww-google-reviews .sk-post__user-link {
+    color: #151516 !important;
+}
 /* Feature Sections */
 .ngjs1-feature-4,
 .ngjs1-feature-1 {
-    padding: 5rem 0 !important;
+    padding: 2rem 0 !important;
 }
 
 .ngjs1-feature-4:nth-child(even) {
@@ -1153,6 +1159,14 @@ tr:hover {
         max-height: 440px;
         object-fit: contain;
     }
+    
+    .basic-landing-2-container {
+        padding: 1.5rem 0;
+    }
+    
+    .hero-2-section-text {
+        padding-left: 2rem;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -1184,6 +1198,14 @@ tr:hover {
         max-height: 400px;
         object-fit: contain;
     }
+    
+    .basic-landing-2-container {
+        padding: 1.25rem 0;
+    }
+    
+    .hero-2-section-text {
+        padding-left: 1.5rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1214,7 +1236,11 @@ tr:hover {
     }
     
     .basic-landing-2-container {
-        padding: 4rem 0;
+        padding: 1.5rem 0;
+    }
+    
+    .hero-2-section-text {
+        padding-left: 1rem;
     }
     
     .ngjs1-blog-slider {
@@ -1516,6 +1542,14 @@ tr:hover {
     .btn-cta {
         padding: 0.875rem 1.75rem !important;
         font-size: 0.95rem !important;
+    }
+    
+    .basic-landing-2-container {
+        padding: 1rem 0;
+    }
+    
+    .hero-2-section-text {
+        padding-left: 0.5rem;
     }
 }
 
