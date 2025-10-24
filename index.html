@@ -207,7 +207,7 @@
 				<div class="ngjs1-feature-1-item">
 					<p><b>Ready to Start?</b></p>
 					<p>Enroll now to begin your journey toward becoming a licensed security guard in Tennessee.</p>
-					<a href="https://securityguardlicensetn.com/courses" target="_blank" class="btn btn-1">Register
+					<a href="https://securityguardlicensetn.com/courses"  target="_blank" class="btn btn-1">Register
 						Now</a>
 				</div>
 			</div>
@@ -257,7 +257,7 @@
 	</section>
 
 	<!-- Pricing & Course Cards Section -->
-	<section class="ngjs1-course-section gjs-locked pricing-section">
+	<section class="ngjs1-course-section pricing-section">
 		<div class="ngjs1-course-container">
 			<h2 class="pricing-heading">Online Courses &amp; Pricing</h2>
 			<p class="pricing-subheading">We will provide anything to make sure you achieve the best results</p>
@@ -481,8 +481,8 @@
 	</section>
 
 	<!-- Blog Section -->
-	<section data-var="[[via-id-custom-var-__no__blogs-1-slider_34_33_32_31_30_29]]"
-		class="ngjs1-blog-section gjs-locked">
+	<section 
+		class="ngjs1-blog-section ">
 		<div class="ngjs1-blog-container">
 			<h2 class="ngjs1-blog-heading">Latest Security Insights & Tips</h2>
 			<p class="ngjs1-blog-subheading">Stay informed with expert advice and industry updates</p>
@@ -758,40 +758,78 @@
 
 	<script>
 		// Blog Slider Navigation
+
+		let btnPrev = document.querySelector('.ngjs1-blog-nav-prev');
+		let btnNext = document.querySelector('.ngjs1-blog-nav-next');
+
+		btnPrev.addEventListener('click', () => {
+			scrollBlogSlider(-1);
+		});
+
+		btnNext.addEventListener('click', () => {
+			scrollBlogSlider(1);
+		});
+
 		function scrollBlogSlider(direction) {
 			const slider = document.getElementById('blogSlider');
-			const scrollAmount = 340; // card width + gap
+			const scrollAmount = 340; 
 			slider.scrollBy({
 				left: direction * scrollAmount,
 				behavior: 'smooth'
 			});
 		}
 
-		// Initialize FAQ Accordion
-		document.addEventListener('DOMContentLoaded', function () {
-			const faqItems = document.querySelectorAll('.ngjs1-faq-1-item');
+		// Initialize FAQ Accordion - Works in page builders
+		(function initFAQ() {
+			function setupFAQ() {
+				const faqItems = document.querySelectorAll('.ngjs1-faq-1-item');
+				
+				if (faqItems.length === 0) {
+					return;
+				}
 
-			faqItems.forEach(item => {
-				const question = item.querySelector('.ngjs1-faq-question');
+				faqItems.forEach(item => {
+					const question = item.querySelector('.ngjs1-faq-question');
+					if (!question) return;
+					
+					// Check if already initialized
+					if (question.hasAttribute('data-faq-initialized')) return;
+					question.setAttribute('data-faq-initialized', 'true');
+					
+					question.addEventListener('click', function(e) {
+						e.preventDefault();
+						e.stopPropagation();
+						
+						// Close all other items
+						faqItems.forEach(otherItem => {
+							if (otherItem !== item && otherItem.classList.contains('active')) {
+								otherItem.classList.remove('active');
+							}
+						});
 
-				question.addEventListener('click', () => {
-					// Close all other items
-					faqItems.forEach(otherItem => {
-						if (otherItem !== item && otherItem.classList.contains('active')) {
-							otherItem.classList.remove('active');
-						}
+						// Toggle current item
+						item.classList.toggle('active');
 					});
-
-					// Toggle current item
-					item.classList.toggle('active');
 				});
-			});
 
-			// Open first item by default
-			if (faqItems.length > 0) {
-				faqItems[0].classList.add('active');
+				// Open first item by default if none are active
+				const hasActive = Array.from(faqItems).some(item => item.classList.contains('active'));
+				if (!hasActive && faqItems.length > 0) {
+					faqItems[0].classList.add('active');
+				}
 			}
-		});
+
+			// Try to setup immediately
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', setupFAQ);
+			} else {
+				setupFAQ();
+			}
+			
+			// Also run after a delay for page builders
+			setTimeout(setupFAQ, 500);
+			setTimeout(setupFAQ, 1000);
+		})();
 	</script>
 </body>
 
